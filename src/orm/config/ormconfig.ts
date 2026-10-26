@@ -1,5 +1,9 @@
 import { ConnectionOptions } from 'typeorm';
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
+import { User } from '../entities/users/User';
+import { Category } from '../entities/categories/Category';
+import { Product } from '../entities/products/Product';
+
 
 const config: ConnectionOptions = {
   type: 'postgres',
@@ -11,7 +15,7 @@ const config: ConnectionOptions = {
   database: process.env.POSTGRES_DB,
   synchronize: false,
   logging: false,
-  entities: ['src/orm/entities/**/*.ts'],
+  entities: [User, Category, Product],
   migrations: ['src/orm/migrations/**/*.ts'],
   subscribers: ['src/orm/subscriber/**/*.ts'],
   cli: {

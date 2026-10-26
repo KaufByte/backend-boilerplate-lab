@@ -1,14 +1,26 @@
+import { listCategories, createCategory } from '../controllers/categories';
+import {
+  listProducts,
+  showProduct,
+  createProduct,
+  updateProduct,
+  destroyProduct,
+} from '../controllers/products';
 import { Router } from 'express';
-
-import page404 from './pages/404';
-import pageRoot from './pages/root';
-import v1 from './v1/';
+import v1 from './v1';
 
 const router = Router();
 
-router.use(`/v1`, v1);
+router.use('/v1', v1);
+// Роуты категорий
+router.get('/categories', listCategories);
+router.post('/categories', createCategory);
 
-router.use(pageRoot);
-router.use(page404);
+// CRUD роуты товаров
+router.get('/products', listProducts);
+router.get('/products/:id', showProduct);
+router.post('/products', createProduct);
+router.put('/products/:id', updateProduct);
+router.delete('/products/:id', destroyProduct);
 
 export default router;
