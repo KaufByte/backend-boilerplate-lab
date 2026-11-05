@@ -14,6 +14,10 @@ export const Home = (): FunctionComponent => {
 
 	return (
 		<div className="bg-blue-300 font-bold w-screen h-screen flex flex-col justify-center items-center">
+			
+					<h1>Лабораторно-практична робота №7</h1>
+			<p>Дослідження React, Vite та TypeScript</p>
+			<p>Мій фронтенд-додаток успішно працює!</p>
 			<p className="text-white text-6xl">{t("home.greeting")}</p>
 			<button
 				className="hover:cursor-pointer"
@@ -22,6 +26,8 @@ export const Home = (): FunctionComponent => {
 			>
 				translate
 			</button>
+			
+	
 		</div>
 	);
 };
