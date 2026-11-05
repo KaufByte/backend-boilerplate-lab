@@ -1,4 +1,6 @@
+
 import { listCategories, createCategory } from '../controllers/categories';
+
 import {
   listProducts,
   showProduct,
@@ -6,20 +8,30 @@ import {
   updateProduct,
   destroyProduct,
 } from '../controllers/products';
+
 import { Router } from 'express';
 import v1 from './v1';
+
+import { validatorCreateProduct } from '../middleware/validation/Product/validatorCreateProduct';
 
 const router = Router();
 
 router.use('/v1', v1);
-// Роуты категорий
+
+// Маршрути категорій
 router.get('/categories', listCategories);
 router.post('/categories', createCategory);
 
-// CRUD роуты товаров
+// CRUD-маршрути товарів
 router.get('/products', listProducts);
 router.get('/products/:id', showProduct);
-router.post('/products', createProduct);
+
+router.post(
+  '/products',
+  validatorCreateProduct,
+  createProduct
+);
+
 router.put('/products/:id', updateProduct);
 router.delete('/products/:id', destroyProduct);
 

@@ -10,6 +10,7 @@
     "migration:create": "cross-env NODE_PATH=./src ts-node ./node_modules/typeorm/cli.js migration:create --config ./src/orm/config/ormconfig.ts -n",
     "seed:run:dev": "cross-env NODE_PATH=./src ts-node ./node_modules/typeorm/cli.js migration:run --config ./src/orm/config/ormconfig-seed.ts",
     "seed:create": "cross-env NODE_PATH=./src ts-node ./node_modules/typeorm/cli.js migration:create --config ./src/orm/config/ormconfig-seed.ts -n"
+    
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
