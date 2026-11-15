@@ -9,7 +9,7 @@ export const Route = createFileRoute("/products/")({
   component: ProductsListPage,
 });
 
-function ProductsListPage() {
+export function ProductsListPage() {
   const { data: products, isLoading, isError, error } = useProducts();
 
   const deleteMutation = useDeleteProduct();
